@@ -2,11 +2,13 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"load_image": "02_image.ipynb",
+index = {"upload_folder": "01_datasets.ipynb",
+         "load_image": "02_image.ipynb",
          "show_image": "02_image.ipynb",
          "show_images": "02_image.ipynb"}
 
-modules = ["image.py"]
+modules = ["datasets.py",
+           "image.py"]
 
 doc_url = "https://fastwandb.github.io/fastwandb/"
 
