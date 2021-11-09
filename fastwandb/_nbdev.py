@@ -2,7 +2,13 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"upload_folder": "01_datasets.ipynb",
+index = {"PROJECT_NAME": "01_datasets.ipynb",
+         "JOB_TYPE": "01_datasets.ipynb",
+         "ENTITY": "01_datasets.ipynb",
+         "upload_folder": "01_datasets.ipynb",
+         "ImageTable": "01_datasets.ipynb",
+         "label_image_name": "01_datasets.ipynb",
+         "label_image_image": "01_datasets.ipynb",
          "load_image": "02_image.ipynb",
          "show_image": "02_image.ipynb",
          "show_images": "02_image.ipynb"}
