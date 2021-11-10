@@ -9,6 +9,7 @@ jobs:
       with:
         python-version: '3.8'
         architecture: 'x64'
+        WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
     - name: Install the library
       run: |
         pip install nbdev jupyter
