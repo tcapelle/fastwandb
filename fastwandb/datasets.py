@@ -8,7 +8,7 @@ from .imports import *
 from .image import *
 
 PROJECT_NAME = "fastwandb"
-JOB_TYPE     = "upload_data"
+JOB_TYPE     = "test_nb01"
 ENTITY       = "tcapelle"
 
 # Cell
@@ -35,16 +35,19 @@ class ImageTable(wandb.Table):
     - image_paths List[Path]: A list of paths referencing images.
     - label_func  Callable: A function to label images.
     """
-    def __init__(self, image_paths, label_func):
-        super().__init__(columns=['img', 'label'])
+
+    @classmethod
+    def from_files(cls, image_paths, label_func):
+        image_table = cls(columns=['img', 'label'])
         for img_path in image_paths:
-            self.add_data(wandb.Image(str(img_path)), label_func(img_path))
+            image_table.add_data(wandb.Image(str(img_path)), label_func(img_path))
+        return image_table
 
     @classmethod
     def from_folder(cls, folder_path, label_func):
         files = Path(folder_path).ls()
         # we could put `get_image_files` here
-        return cls(files, label_func)
+        return cls.from_files(files, label_func)
 
     def log_to_workspace(self, name='table'):
         wandb.log({name: self})
